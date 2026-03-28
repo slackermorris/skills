@@ -30,6 +30,15 @@ Vault-specific commands, shaped by the AI-assisted PKM methodology of [Chase Ada
 | Housekeeping | [top-three-priorities](./top-three-priorities/) | Set today's top 3 priorities, checking yesterday's note for carry-overs. |
 | Global | [done](./done/) | Capture the current session's key decisions, questions, and follow-ups into a structured session log in the vault. |
 
+## Templates
+
+Starter templates for new skills are in [`templates/`](./templates/). Because skills now encompass __commands__, I thought it worthwhile to separate the two use cases into their own templates.
+
+| Template | Use when |
+|----------|----------|
+| [agent-skill.md](./templates/agent-skill.md) | The skill should trigger automatically based on context. The Agent decides when to invoke it. Description acts as a trigger specification. |
+| [user-skill.md](./templates/user-skill.md) | The skill is only invoked explicitly by the user via a slash command. Includes `disable-model-invocation: true`. |
+
 ---
 
 [chase-1]: https://curiouslychase.com/posts/ai-native-obsidian-vault-setup-guide/
