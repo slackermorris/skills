@@ -2,6 +2,8 @@
 name: review-using-skills
 description: Evaluate a note against relevant skill knowledge
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Review Using Skills

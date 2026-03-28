@@ -2,6 +2,8 @@
 name: top-three-priorities
 description: Set today's top 3 priorities
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Top Three Priorities

@@ -2,6 +2,8 @@
 name: verify
 description: Quality check notes for prose titles and wikilink usage
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Verify

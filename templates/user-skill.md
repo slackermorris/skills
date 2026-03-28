@@ -2,6 +2,8 @@
 name: skill-name
 description: Short label describing what the command does
 disable-model-invocation: true
+metadata:
+  last-used: ""
 ---
 
 ## Skill Name

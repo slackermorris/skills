@@ -1,6 +1,8 @@
 ---
 name: execution-plan-progress
 description: Update the currently active execution plan with progress from today's daily notes and git activity. Use this skill whenever the user says "/execution-plan-progress", "update the plan", "log today's progress", "update my exec plan", "mark progress on the plan", or wants to sync their daily note or git commits into an execution plan. Also trigger when the user has been doing work and wants to capture what got done into a structured plan document.
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Purpose

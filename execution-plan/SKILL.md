@@ -1,6 +1,8 @@
 ---
 name: execution-plan
 description: Set up and manage execution plans for a project — lightweight progress/decision tracking documents that live in version control alongside the code. Use this skill whenever the user wants to track a feature, bug fix, or piece of work with a structured plan, says "start an execution plan", "set up exec-plans", "scaffold exec plans", "create a plan for this work", or wants to initialize the execution plan system in a project. Also trigger when the user wants to create a new plan for a specific piece of work (a feature, bug, refactor, etc.) even if they don't use the term "execution plan".
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## What execution plans are

@@ -2,6 +2,8 @@
 name: setup-week
 description: Create this week's daily and weekly notes
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Setup Week

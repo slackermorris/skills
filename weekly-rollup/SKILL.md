@@ -2,6 +2,8 @@
 name: weekly-rollup
 description: Synthesize this week's daily notes into the weekly summary
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Weekly Rollup

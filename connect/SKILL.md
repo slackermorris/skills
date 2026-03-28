@@ -2,6 +2,8 @@
 name: connect
 description: Find connections between a note and the rest of the vault
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Connect

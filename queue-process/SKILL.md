@@ -2,6 +2,8 @@
 name: queue-process
 description: Work through notes in the processing queue
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Queue Process

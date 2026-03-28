@@ -2,6 +2,8 @@
 name: queue-add
 description: Add a note to the processing queue
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Queue Add

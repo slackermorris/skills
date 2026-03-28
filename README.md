@@ -39,7 +39,75 @@ Starter templates for new skills are in [`templates/`](./templates/). Because sk
 | [agent-skill.md](./templates/agent-skill.md) | The skill should trigger automatically based on context. The Agent decides when to invoke it. Description acts as a trigger specification. |
 | [user-skill.md](./templates/user-skill.md) | The skill is only invoked explicitly by the user via a slash command. Includes `disable-model-invocation: true`. |
 
+## Advanced Functionality 
+
+### Housekeeping
+
+Each skill tracks its last-used date in `metadata.last-used` (via the [AgentSkills][agentskills] `metadata` field). Two lifecycle hooks keep this current and flag stale skills automatically:
+
+| Hook / Event | Agent | What it does |
+|---|---|---|
+| `PostToolUse` > `Skill` | Claude Code | Updates `last-used` in `SKILL.md` whenever a skill is invoked |
+| `Stop` | Claude Code | Warns about skills unused for >14 days at end of session |
+| `tool.execute.after` | OpenCode | Updates `last-used` on skill invocation |
+| `session.idle` | OpenCode | Notifies about stale skills when session goes idle |
+
+The scripts live in this repo as the source of truth. Installation copies them to where each agent expects them.
+
+### Installation
+
+**1. Set `SKILLS_DIR`** (add to `~/.zshrc` or equivalent):
+
+```bash
+export SKILLS_DIR="$HOME/path/to/this/local/skills/repository"
+```
+
+**2. Install Claude Code hooks:**
+
+```bash
+mkdir -p ~/.claude/hooks
+cp "$SKILLS_DIR/.claude/hooks/housekeeping.sh" ~/.claude/hooks/
+cp "$SKILLS_DIR/.claude/hooks/update-last-used.sh" ~/.claude/hooks/
+chmod +x ~/.claude/hooks/housekeeping.sh ~/.claude/hooks/update-last-used.sh
+```
+
+Then add to `~/.claude/settings.json` (create if it doesn't exist):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/update-last-used.sh", "async": true }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/housekeeping.sh", "async": true, "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**3. Install OpenCode plugin:**
+
+```bash
+mkdir -p ~/.config/opencode/plugins
+cp "$SKILLS_DIR/.opencode/plugins/housekeeping.js" ~/.config/opencode/plugins/
+```
+
+OpenCode auto-discovers plugins in `~/.config/opencode/plugins/` — no further configuration needed.
+
+**Re-installing after updates:** Re-run the `cp` commands whenever the hook scripts change in this repo.
+
 ---
 
 [chase-1]: https://curiouslychase.com/posts/ai-native-obsidian-vault-setup-guide/
 [henrich]: https://x.com/arscontexta/status/2013058057836605756
+[agentskills]: https://agentskills.io/specification

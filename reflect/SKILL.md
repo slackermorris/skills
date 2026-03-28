@@ -2,6 +2,8 @@
 name: reflect
 description: Guided daily reflection
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Reflect

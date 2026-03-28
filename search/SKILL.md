@@ -2,6 +2,8 @@
 name: search
 description: Deep search across the vault for a topic or question
 disable-model-invocation: true
+metadata:
+  last-used: "2026-03-29"
 ---
 
 ## Search

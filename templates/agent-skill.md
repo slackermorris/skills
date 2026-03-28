@@ -4,6 +4,8 @@ description: >
   What this skill does and when to use it. Be specific about triggering contexts:
   use this skill whenever the user says X, wants to Y, or mentions Z. Also trigger
   when the user describes the outcome they want even if they don't name the skill.
+metadata:
+  last-used: ""
 ---
 
 ## Skill Name
