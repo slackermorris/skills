@@ -5,7 +5,7 @@ description: >
   use this skill whenever the user says X, wants to Y, or mentions Z. Also trigger
   when the user describes the outcome they want even if they don't name the skill.
 metadata:
-  last-used: ""
+  last-used: "YYYY-MM-DD"
 ---
 
 ## Skill Name
