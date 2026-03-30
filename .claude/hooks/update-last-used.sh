@@ -19,7 +19,8 @@ if [ -z "$skill_name" ]; then
   exit 0
 fi
 
-skill_file="$HOME/.claude/skills/$skill_name/SKILL.md"
+skills_dir="${SKILLS_DIR:-$HOME/.claude/skills}"
+skill_file="$skills_dir/$skill_name/SKILL.md"
 
 if [ ! -f "$skill_file" ]; then
   exit 0

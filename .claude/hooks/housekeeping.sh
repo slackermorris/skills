@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-SKILLS_DIR="$HOME/.claude/skills"
+SKILLS_DIR="${SKILLS_DIR:-$HOME/.claude/skills}"
 
 if [ ! -d "$SKILLS_DIR" ]; then
   exit 0
