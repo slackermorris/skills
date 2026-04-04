@@ -2,21 +2,23 @@
 name: code-review
 description: Run a code review by spawning pr-test-analyser and silent-failure-analyser sub-agents in parallel and reporting their findings. Use this skill whenever the user wants to review code, says "review this", "run a code review", "check this code", or wants feedback on code quality.
 metadata:
-  last-used: "2026-04-04"
+  last-used: "YYYY-MM-DD"
 ---
 
 ## Code Review
 
-Runs a thorough code review by spawning two specialized sub-agents in parallel, then synthesizes their findings into a clear report.
+This skill orchestrates a code review by delegating all analysis to two specialised sub-agents and then consolidating their findings into a single report. Do not perform any analysis yourself. Your job is to gather context, brief the sub-agents, and present their output.
 
 ### Steps
+
+Collect enough information to brief the sub-agents. Do not analyse the changes yourself, just gather the raw material.
 
 1. **Understand the scope.** Determine what code to review:
    - If the user specified files or a PR, use those.
    - If unstaged/staged changes exist, review those changes.
    - If nothing is specified, review the most recent commit or the current branch's diff against main/master.
 
-2. **Run the review.** Use the Task tool to spawn these two sub-agents in parallel:
+2. **Run the review.** Spawn these two sub-agents in parallel:
    - **`pr-test-analyser`** — Reviews test coverage quality and completeness.
      - Description: "Analyze test coverage"
      - Prompt: "Review the current code changes for test coverage quality and completeness. Check that tests exist for new/modified code, edge cases are covered, and test assertions are meaningful. Report any gaps."
