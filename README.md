@@ -30,6 +30,15 @@ Vault-specific commands, shaped by the AI-assisted PKM methodology of [Chase Ada
 | Housekeeping | [top-three-priorities](./top-three-priorities/) | Set today's top 3 priorities, checking yesterday's note for carry-overs. |
 | Global | [done](./done/) | Capture the current session's key decisions, questions, and follow-ups into a structured session log in the vault. |
 
+### Clanker
+
+Tools for feeding [Clanker](../Clanker/), an AI-only knowledge vault — a second brain written entirely by agents, never touched by human hands.
+
+| Skill | Description |
+|-------|-------------|
+| [feed-clanker](./feed-clanker/) | Capture a snapshot of the current agent session and write it as a raw markdown file to `~/Documents/Clanker/raw/` for ingestion into the AI-only knowledge vault. |
+| [synthesise](./synthesise/) | Ingest unprocessed raw files from `~/Documents/Clanker/raw/` into the wiki, then synthesise connections across the vault. |
+
 ## Templates
 
 Starter templates for new skills are in [`templates/`](./templates/). Because skills now encompass __commands__, I thought it worthwhile to separate the two use cases into their own templates.
