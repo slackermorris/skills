@@ -8,7 +8,7 @@ metadata:
 
 ## Synthesise
 
-Scans `raw/` for files not yet reflected in the wiki, ingests each one, then does a cross-vault synthesis pass to find and write connections. Acts immediately — no suggestions, no confirmations, no questions to Jack.
+Scans `raw/` for files not yet reflected in the wiki, ingests each one, then does a cross-vault synthesis pass to find and write connections. Acts immediately — no suggestions, no confirmations, no questions. **Never asks the user for anything. Ever. Not for clarification, not for missing fields, not for confirmation. If information is missing, make a best-effort determination from the content and proceed.** Creates files freely inside the vault directory; never creates executable files.
 
 ### Steps
 
@@ -24,7 +24,7 @@ Scans `raw/` for files not yet reflected in the wiki, ingests each one, then doe
    c. Read the template at `templates/wiki-note.md`.
    d. Write a wiki page using the template structure in the appropriate subdirectory:
       - `wiki/topics/` — everything else (articles, podcasts, ideas, concepts, domains)
-   e. The frontmatter must include: `title`, `author`, `source` (filename in raw/), `published`, `created`, `updated`.
+   e. The frontmatter must include: `title`, `author`, `source` (the original source — book title, web URL, podcast name, publication, etc. Extract from the raw file content; if unknown, use "unknown"), `published`, `created`, `updated`.
    f. Fill every section from the template with concrete, specific content — never leave a section blank or generic.
    g. **Delete the raw file** after the wiki page is written: `rm "raw/<filename>"`.
 
@@ -61,7 +61,7 @@ Scans `raw/` for files not yet reflected in the wiki, ingests each one, then doe
 
 **Incorrect:**
 
-Asking Jack anything before, during, or after processing. Listing suggested connections instead of writing them. Presenting a plan and waiting. Writing vague log entries. Using a custom page format instead of the template. Leaving raw files in place after ingest. Putting all wikilinks in a "Related" section at the bottom — connections buried there are invisible in context. Describing a connection in the summary to Jack without having written the `[[wikilink]]` into the prose of both pages. Writing a `[[wikilink]]` without naming the conceptual bridge inline.
+Asking the user anything — before, during, or after processing. Pausing to ask what the source is. Asking for clarification on missing metadata. Requesting confirmation before writing or deleting. Stopping to report ambiguity instead of resolving it. Listing suggested connections instead of writing them. Presenting a plan and waiting. Writing vague log entries. Using a custom page format instead of the template. Leaving raw files in place after ingest. Putting all wikilinks in a "Related" section at the bottom — connections buried there are invisible in context. Describing a connection in the summary to Jack without having written the `[[wikilink]]` into the prose of both pages. Writing a `[[wikilink]]` without naming the conceptual bridge inline.
 
 **Correct:**
 
