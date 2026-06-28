@@ -1,0 +1,77 @@
+<!doctype html>
+<!--
+  teach-me lesson skeleton. Copy into the session working directory (see
+  ../references/session-workspace.md) and replace the content. This is a worked
+  example, not a blank page — author from it.
+
+  Assets are SERVED by serve.js, not inlined — link them with root-absolute paths
+  (/assets/...). On the first lesson, scaffold the workspace by copying this skill's
+  assets/ (lesson.css, ask-claude.css, ask-claude.js, quiz.js) and serve.js into the
+  working directory (see ../assets/README.md).
+
+  Build steps:
+    1. Replace the <title>, the #lesson-context JSON, the .win banner, the explainer,
+       and the mountQuiz() data. Keep the <head> links and the class="lesson" wrapper.
+    2. Set #lesson-context: lesson = this file's name, title, and a one-line
+       missionSummary distilled from Phase 1 — it is passed with every question so the
+       answer is pitched at the learner's goal.
+    3. Keep it to one screen / one win, content sourced from RESOURCES.md.
+    4. Do NOT author answers. The user highlights a phrase, the ask-claude widget sends
+       the question to serve.js, a headless Claude answers it from RESOURCES.md, and the
+       answer renders in the margin (see ../references/ask-protocol.md). No copy-paste,
+       no refresh.
+
+  Open it via the server (http://localhost:5173/<this-file>.html), never file:// — the
+  widget and the /assets links only resolve under serve.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson — {one tightly-scoped thing}</title>
+  <link rel="stylesheet" href="/assets/lesson.css" />
+  <link rel="stylesheet" href="/assets/ask-claude.css" />
+  <script type="application/json" id="lesson-context">
+  {"lesson":"{this-file}.html","title":"{lesson title}","missionSummary":"{one line distilled from Phase 1}"}
+  </script>
+  <script src="/assets/ask-claude.js" defer></script>
+</head>
+<body>
+  <div class="lesson">
+    <div class="win">
+      <p class="win-label">By the end</p>
+      <p>{the single tangible win — what the user can recall or do after this lesson}</p>
+    </div>
+
+    <h1>{Lesson title — the one thing}</h1>
+
+    <section class="explainer">
+      <p>{The explainer. One concept, kept inside working memory. Sourced from RESOURCES.md —
+         not parametric memory. Cut anything not needed for the win above.}</p>
+      <p class="source">Source: {citation from RESOURCES.md}</p>
+    </section>
+
+    <h2>Check yourself</h2>
+    <div id="quiz"></div>
+  </div>
+
+  <script src="/assets/quiz.js"></script>
+  <script>
+    // Replace with this lesson's questions. Every option's text should be the same
+    // number of words (ideally same chars). Every option needs a `why`.
+    mountQuiz(document.getElementById('quiz'), [
+      {
+        q: "{recall question testing the win}",
+        options: [
+          { text: "{correct answer, n words}", correct: true,
+            why: "{why this is right — confirm the mechanism}" },
+          { text: "{plausible distractor, n words}", correct: false,
+            why: "{what's actually true, and why this is wrong}" },
+          { text: "{plausible distractor, n words}", correct: false,
+            why: "{what's actually true, and why this is wrong}" }
+        ]
+      }
+    ]);
+  </script>
+</body>
+</html>
