@@ -3,75 +3,64 @@ A personal directory of skills. Skills follow the [AGENTSKILLS](https://agentski
 
 ## Skills
 
-### Project Management
+Skills are grouped into top-level folders by what they're for. Nothing is installed by default: link a skill into `~/.claude/skills/` to expose it, e.g. `ln -s ~/Code/skills/productivity/tutor ~/.claude/skills/tutor`.
 
-Tools for planning, tracking, and progressing work across repositories.
+### Productivity
 
-| Skill | Description |
-|-------|-------------|
-| [execution-plan](./execution-plan/) | Set up and manage execution plans which are lightweight progress/decision tracking docs in version control. Skill is used once in lifetime of repository. |
-| [execution-plan-progress](./execution-plan-progress/) | Sync today's daily notes and git activity into the active execution plan for a given repository. |
-
-### Personal Knowledge Vault
-
-Vault-specific commands, shaped by the AI-assisted PKM methodology of [Chase Adams][chase-1] and [Henrich][henrich].
+Tools for thinking, learning, and running a personal knowledge vault. The vault commands are shaped by the AI-assisted PKM methodology of [Chase Adams][chase-1] and [Henrich][henrich].
 
 | Group | Skill | Description |
 |-------|-------|-------------|
-| Synthesising Connections | [connect](./connect/) | Find connections between a note and the rest of the vault, suggesting `[[wikilinks]]` to weave them together. |
-| Synthesising Connections | [review-using-skills](./review-using-skills/) | Evaluate a note against relevant skill knowledge to catch domain-specific gaps. |
-| Searching | [search](./search/) | Deep search across the vault for a topic or question, returning a synthesized summary. |
-| Boilerplating | [verify](./verify/) | Quality check notes for prose (propositional) titles, wikilink usage, and proper frontmatter. |
-| Boilerplating | [setup-week](./setup-week/) | Scaffold this week's daily and weekly notes, then set weekly priorities. |
-| Housekeeping | [queue-add](./queue-add/) | Add a note to the processing queue for later work. |
-| Housekeeping | [queue-process](./queue-process/) | Work through notes in the processing queue — synthesize, enhance, or connect. |
-| Housekeeping | [reflect](./reflect/) | Guided end-of-day reflection, synthesized into the daily note's Reflection section. |
-| Housekeeping | [weekly-rollup](./weekly-rollup/) | Synthesise this week's daily notes into themes, decisions, and action items in the weekly note. |
-| Housekeeping | [top-three-priorities](./top-three-priorities/) | Set today's top 3 priorities, checking yesterday's note for carry-overs. |
-| Global | [done](./done/) | Capture the current session's key decisions, questions, and follow-ups into a structured session log in the vault. |
+| Vault | [connect](./productivity/connect/) | Find connections between a note and the rest of the vault, suggesting `[[wikilinks]]` to weave them together. |
+| Vault | [review-using-skills](./productivity/review-using-skills/) | Evaluate a note against relevant skill knowledge to catch domain-specific gaps. |
+| Vault | [search](./productivity/search/) | Deep search across the vault for a topic or question, returning a synthesized summary. |
+| Vault | [verify](./productivity/verify/) | Quality check notes for prose (propositional) titles, wikilink usage, and proper frontmatter. |
+| Vault | [setup-week](./productivity/setup-week/) | Scaffold this week's daily and weekly notes, then set weekly priorities. |
+| Vault | [weekly-rollup](./productivity/weekly-rollup/) | Synthesise this week's daily notes into themes, decisions, and action items in the weekly note. |
+| Vault | [done](./productivity/done/) | Capture the current session's key decisions, questions, and follow-ups into a structured session log in the vault. |
+| Clanker | [feed-clanker](./productivity/feed-clanker/) | Capture a snapshot of the current agent session and write it as a raw markdown file to `~/Documents/Clanker/raw/` for ingestion into [Clanker](../Clanker/), an AI-only knowledge vault. |
+| Learning | [teach-me](./productivity/teach-me/) | Teach a topic in a single, self-contained interactive HTML lesson delivered in Plannotator. The user highlights any phrase to get an instant in-page answer, drawn live from a curated `RESOURCES.md` — never parametric guesses. Complements `tutor`. |
+| Learning | [tutor](./productivity/tutor/) | Test your understanding of a topic one question at a time, varying the angle, with assessor sub-agents grading answers without sycophancy. Probes existing understanding rather than building it. |
 
-### Clanker
+### Engineering
 
-Tools for feeding [Clanker](../Clanker/), an AI-only knowledge vault — a second brain written entirely by agents, never touched by human hands.
+Tools for designing, building, reviewing, and shipping code.
 
-| Skill | Description |
-|-------|-------------|
-| [feed-clanker](./feed-clanker/) | Capture a snapshot of the current agent session and write it as a raw markdown file to `~/Documents/Clanker/raw/` for ingestion into the AI-only knowledge vault. |
-| [synthesise](./synthesise/) | Ingest unprocessed raw files from `~/Documents/Clanker/raw/` into the wiki, then synthesise connections across the vault. |
+| Group | Skill | Description |
+|-------|-------|-------------|
+| Planning | [write-sdd](./engineering/write-sdd/) | Write a Software Design Document for a feature or change before implementing it. |
+| Reviewing | [code-reviewer](./engineering/code-reviewer/) | Run a code review by spawning pr-test-analyser and silent-failure-analyser sub-agents in parallel and reporting their findings. Named to avoid clashing with Claude Code's built-in `/code-review`. |
+| Reviewing | [one-percent-codebase](./engineering/one-percent-codebase/) | Make the current repo 1% better: parallel assessor sub-agents each find, implement, and validate their single highest-impact improvement, then open a focused PR. Keeps a committed ledger so progress compounds. |
+| Shipping | [write-mr-description](./engineering/write-mr-description/) | Write a merge request or pull request description that leads with what the change unlocks, names the risk you tested for, and reads like one human talking to another. Uses ASD-STE100 Simplified Technical English. Detects GitLab or GitHub and offers to apply the description. |
+| Shipping | [babysit-prs](./engineering/babysit-prs/) | One sweep over all open GitHub PRs and GitLab MRs — restack stacked branches onto their parents, merge the base in, autofix lint, hand unresolved review threads to [address-pr-reviews](./engineering/address-pr-reviews/), and settle CI. Tracks state so reruns skip handled work. Built for `/loop`. |
+| Shipping | [address-pr-reviews](./engineering/address-pr-reviews/) | Work through the unresolved review threads on one PR or MR — fix what is legitimate, explain what is not. Detects GitLab or GitHub. Closes bot threads on its own; always leaves a human reviewer's thread for you to answer. |
+| Design | [muller-brockmann-grid](./engineering/muller-brockmann-grid/) | Build editorial/magazine pages on a genuine Müller-Brockmann modular grid — one CSS-variable source of truth, a toggleable overlay sharing the content box, subgrid bands, baseline lock, and runtime optical alignment. Ships a scaffold generator and a zero-dependency verification harness that proves 0px adherence. |
 
-### Learning
+### Deprecated
 
-Tools for acquiring knowledge and building skills.
-
-| Skill | Description |
-|-------|-------------|
-| [teach-me](./teach-me/) | Teach a topic in a single, self-contained interactive HTML lesson delivered in Plannotator. The user highlights any phrase to get an instant in-page answer, drawn live from a curated `RESOURCES.md` — never parametric guesses. Complements the `tutor` skill (which probes existing understanding rather than building it). |
-
-### Shipping
-
-Tools for getting work reviewed and merged.
+No longer used. Kept for reference; don't link these.
 
 | Skill | Description |
 |-------|-------------|
-| [write-mr-description](./write-mr-description/) | Write a merge request or pull request description that leads with what the change unlocks, names the risk you tested for, and reads like one human talking to another. Uses ASD-STE100 Simplified Technical English. Detects GitLab or GitHub and offers to apply the description. |
-| [babysit-prs](./babysit-prs/) | One sweep over all open GitHub PRs and GitLab MRs — restack stacked branches onto their parents, merge the base in, autofix lint, hand unresolved review threads to [address-pr-reviews](./address-pr-reviews/), and settle CI. Tracks state so reruns skip handled work. Built for `/loop`. |
-| [address-pr-reviews](./address-pr-reviews/) | Work through the unresolved review threads on one PR or MR — fix what is legitimate, explain what is not. Detects GitLab or GitHub. Closes bot threads on its own; always leaves a human reviewer's thread for you to answer. |
+| [adr](./deprecated/adr/) | Create, assess, and lazy-load Architecture Decision Records in the MADR format. |
+| [execution-plan](./deprecated/execution-plan/) | Set up and manage execution plans which are lightweight progress/decision tracking docs in version control. |
+| [execution-plan-progress](./deprecated/execution-plan-progress/) | Sync today's daily notes and git activity into the active execution plan for a given repository. |
+| [queue-add](./deprecated/queue-add/) | Add a note to the processing queue for later work. |
+| [queue-process](./deprecated/queue-process/) | Work through notes in the processing queue — synthesize, enhance, or connect. |
+| [reflect](./deprecated/reflect/) | Guided end-of-day reflection, synthesized into the daily note's Reflection section. |
+| [synthesise](./deprecated/synthesise/) | Ingest unprocessed raw files from `~/Documents/Clanker/raw/` into the wiki, then synthesise connections across the vault. |
 
-### Design
+### Vendored
 
-Tools for building things that have to look right, and proving that they do.
+Skills maintained elsewhere, pulled into [`vendor/`](./vendor/) rather than authored here. Don't edit them by hand; update from upstream instead.
 
-| Skill | Description |
-|-------|-------------|
-| [muller-brockmann-grid](./muller-brockmann-grid/) | Build editorial/magazine pages on a genuine Müller-Brockmann modular grid — one CSS-variable source of truth, a toggleable overlay sharing the content box, subgrid bands, baseline lock, and runtime optical alignment. Ships a scaffold generator and a zero-dependency verification harness that proves 0px adherence. |
+| Source | Path | How it's vendored | Update with |
+|--------|------|-------------------|-------------|
+| [mattpocock/skills](https://github.com/mattpocock/skills) | [`vendor/mattpocock-skills/`](./vendor/mattpocock-skills/) | git subtree | `git subtree pull --prefix vendor/mattpocock-skills https://github.com/mattpocock/skills.git main --squash` |
+| [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | [`vendor/vercel-agent-skills/`](./vendor/vercel-agent-skills/) | git subtree | `git subtree pull --prefix vendor/vercel-agent-skills https://github.com/vercel-labs/agent-skills.git main --squash` |
+| [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | [`vendor/last30days-skill/`](./vendor/last30days-skill/) | git submodule | `git submodule update --remote vendor/last30days-skill` |
 
-### Third-party
-
-Skills maintained elsewhere, pulled in as git submodules rather than authored here. Update them with `git submodule update --remote <name>`.
-
-| Skill | Description |
-|-------|-------------|
-| [last30days](https://github.com/mvanhorn/last30days-skill) | Research what people actually say about any topic in the last 30 days — Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web, scored by engagement. Submodule at [`last30days-skill/`](./last30days-skill/); the runtime skill is its `skills/last30days/` directory. |
+Each vendored repo keeps its skills in `skills/` (Matt's are further grouped as `skills/<category>/<name>/`). Link only the ones you want.
 
 ## Templates
 
