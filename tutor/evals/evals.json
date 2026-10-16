@@ -1,0 +1,47 @@
+{
+  "skill_name": "tutor",
+  "evals": [
+    {
+      "id": 1,
+      "name": "typescript-discriminated-unions",
+      "prompt": "/tutor TypeScript discriminated unions",
+      "assertions": [
+        "Issues exactly one exam question (does not bundle multiple)",
+        "Calibrates briefly with at most three framing items (depth, scope, workspace)",
+        "Recognises the topic as coding-flavoured and proposes a workspace directory",
+        "Names a specific Kathy-Sierra-angle being tested",
+        "Adds a constraint or twist that defeats canned/textbook recall",
+        "Tone is anti-sycophantic — no praise words, no enthusiastic exclamation, no 'Sure!'",
+        "Stops and waits — does not simulate the user's answer"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "eventual-consistency",
+      "prompt": "quiz me on eventual consistency",
+      "assertions": [
+        "Issues exactly one exam question (does not bundle multiple)",
+        "Calibrates briefly with at most three framing items",
+        "Recognises the topic as domain-flavoured (prose answers, no workspace required)",
+        "Names a specific Kathy-Sierra-angle being tested",
+        "Adds a constraint or specific lens that defeats canned recall",
+        "Tone is anti-sycophantic",
+        "Stops and waits — does not simulate the user's answer"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "lic-bridge-pattern",
+      "prompt": "do I actually understand the LIC bridge pattern in our cooperatives work?",
+      "assertions": [
+        "Issues exactly one exam question (does not bundle multiple)",
+        "Either offers to ground in user's notes OR explains transparently why probing blind — does not silently read the notes",
+        "Recognises the user-specific domain context",
+        "Names a specific Kathy-Sierra-angle being tested",
+        "Adds a constraint that defeats notes-based recall",
+        "Tone is anti-sycophantic",
+        "Stops and waits — does not simulate the user's answer"
+      ]
+    }
+  ]
+}

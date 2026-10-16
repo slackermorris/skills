@@ -1,28 +1,14 @@
 <!doctype html>
 <!--
-  teach-me lesson skeleton. Copy into the session working directory (see
-  ../references/session-workspace.md) and replace the content. This is a worked
-  example, not a blank page — author from it.
+  teach-me lesson skeleton — a worked example, not a blank page. Copy into the session
+  working directory and replace the content. Full mechanics in ../references/build.md.
 
-  Assets are SERVED by serve.js, not inlined — link them with root-absolute paths
-  (/assets/...). On the first lesson, scaffold the workspace by copying this skill's
-  assets/ (lesson.css, ask-claude.css, ask-claude.js, quiz.js) and serve.js into the
-  working directory (see ../assets/README.md).
-
-  Build steps:
-    1. Replace the <title>, the #lesson-context JSON, the .win banner, the explainer,
-       and the mountQuiz() data. Keep the <head> links and the class="lesson" wrapper.
-    2. Set #lesson-context: lesson = this file's name, title, and a one-line
-       missionSummary distilled from Phase 1 — it is passed with every question so the
-       answer is pitched at the learner's goal.
-    3. Keep it to one screen / one win, content sourced from RESOURCES.md.
-    4. Do NOT author answers. The user highlights a phrase, the ask-claude widget sends
-       the question to serve.js, a headless Claude answers it from RESOURCES.md, and the
-       answer renders in the margin (see ../references/ask-protocol.md). No copy-paste,
-       no refresh.
-
-  Open it via the server (http://localhost:5173/<this-file>.html), never file:// — the
-  widget and the /assets links only resolve under serve.js.
+  Replace the <title>, #lesson-context JSON, .win banner, explainer, and mountQuiz()
+  data — content sourced from RESOURCES.md, never parametric. Keep the <head> asset
+  links and the class="lesson" wrapper. Set #lesson-context.lesson to this file's name
+  and missionSummary to one line from Phase 1 (it travels with every question). One
+  screen / one win. Do NOT author answers — the ask-claude widget generates them at
+  ask-time. Serve over http://localhost:5173/<this-file>.html, never file://.
 -->
 <html lang="en">
 <head>

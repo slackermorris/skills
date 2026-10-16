@@ -1,0 +1,85 @@
+/* teach-me figure components — link after lesson.css:
+     <link rel="stylesheet" href="/assets/figure.css">
+   Reusable, dependency-free figures for lessons that need to show a small
+   structured example rather than describe it: a signed-amount table (ledger
+   lines, balance sheets, before/after states) and a side callout. Inherits the
+   custom properties defined in lesson.css. */
+
+/* A compact table for worked examples. Wrap in .figure-scroll on narrow screens. */
+.fig-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin: 0 0 0.5rem;
+}
+.fig-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 700;
+  padding-bottom: 0.4rem;
+}
+.fig-table th,
+.fig-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.fig-table thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--ink-soft);
+}
+.fig-table tbody tr:last-child td { border-bottom: none; }
+.fig-table tfoot td {
+  border-top: 1px solid var(--ink-soft);
+  border-bottom: none;
+  font-weight: 700;
+}
+
+/* Signed amounts. .num right-aligns and tabularises; .pos/.neg colour them. */
+.fig-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+.pos { color: var(--accent); }
+.neg { color: var(--wrong); }
+
+/* Horizontal escape hatch so a wide figure never scrolls the page body. */
+.figure-scroll { overflow-x: auto; }
+
+/* A boxed figure — groups a table with its own frame and label. */
+.figure {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1.25rem;
+}
+
+/* An aside that qualifies the surrounding prose without derailing it. */
+.callout {
+  border-left: 3px solid var(--line);
+  padding: 0.1rem 0 0.1rem 0.9rem;
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+.callout strong { color: var(--ink); }
+
+/* Inline code that inherits the lesson's ink rather than a browser default. */
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: rgba(0, 0, 0, 0.045);
+  border-radius: 4px;
+  padding: 0.08em 0.32em;
+}

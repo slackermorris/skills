@@ -39,6 +39,40 @@ Tools for feeding [Clanker](../Clanker/), an AI-only knowledge vault — a secon
 | [feed-clanker](./feed-clanker/) | Capture a snapshot of the current agent session and write it as a raw markdown file to `~/Documents/Clanker/raw/` for ingestion into the AI-only knowledge vault. |
 | [synthesise](./synthesise/) | Ingest unprocessed raw files from `~/Documents/Clanker/raw/` into the wiki, then synthesise connections across the vault. |
 
+### Learning
+
+Tools for acquiring knowledge and building skills.
+
+| Skill | Description |
+|-------|-------------|
+| [teach-me](./teach-me/) | Teach a topic in a single, self-contained interactive HTML lesson delivered in Plannotator. The user highlights any phrase to get an instant in-page answer, drawn live from a curated `RESOURCES.md` — never parametric guesses. Complements the `tutor` skill (which probes existing understanding rather than building it). |
+
+### Shipping
+
+Tools for getting work reviewed and merged.
+
+| Skill | Description |
+|-------|-------------|
+| [write-mr-description](./write-mr-description/) | Write a merge request or pull request description that leads with what the change unlocks, names the risk you tested for, and reads like one human talking to another. Uses ASD-STE100 Simplified Technical English. Detects GitLab or GitHub and offers to apply the description. |
+| [babysit-prs](./babysit-prs/) | One sweep over all open GitHub PRs and GitLab MRs — restack stacked branches onto their parents, merge the base in, autofix lint, hand unresolved review threads to [address-pr-reviews](./address-pr-reviews/), and settle CI. Tracks state so reruns skip handled work. Built for `/loop`. |
+| [address-pr-reviews](./address-pr-reviews/) | Work through the unresolved review threads on one PR or MR — fix what is legitimate, explain what is not. Detects GitLab or GitHub. Closes bot threads on its own; always leaves a human reviewer's thread for you to answer. |
+
+### Design
+
+Tools for building things that have to look right, and proving that they do.
+
+| Skill | Description |
+|-------|-------------|
+| [muller-brockmann-grid](./muller-brockmann-grid/) | Build editorial/magazine pages on a genuine Müller-Brockmann modular grid — one CSS-variable source of truth, a toggleable overlay sharing the content box, subgrid bands, baseline lock, and runtime optical alignment. Ships a scaffold generator and a zero-dependency verification harness that proves 0px adherence. |
+
+### Third-party
+
+Skills maintained elsewhere, pulled in as git submodules rather than authored here. Update them with `git submodule update --remote <name>`.
+
+| Skill | Description |
+|-------|-------------|
+| [last30days](https://github.com/mvanhorn/last30days-skill) | Research what people actually say about any topic in the last 30 days — Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web, scored by engagement. Submodule at [`last30days-skill/`](./last30days-skill/); the runtime skill is its `skills/last30days/` directory. |
+
 ## Templates
 
 Starter templates for new skills are in [`templates/`](./templates/). Because skills now encompass __commands__, I thought it worthwhile to separate the two use cases into their own templates.

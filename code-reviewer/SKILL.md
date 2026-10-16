@@ -1,8 +1,8 @@
 ---
-name: code-review
+name: code-reviewer
 description: Run a code review by spawning pr-test-analyser and silent-failure-analyser sub-agents in parallel and reporting their findings. Use this skill whenever the user wants to review code, says "review this", "run a code review", "check this code", or wants feedback on code quality.
 metadata:
-  last-used: "YYYY-MM-DD"
+  last-used: "2026-10-01"
 ---
 
 ## Code Review

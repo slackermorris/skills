@@ -23,7 +23,7 @@
  *     }
  *   ]);
  *
- * Authoring rules (see ../references/lesson-design.md):
+ * Authoring rules (see ../references/pedagogy.md):
  *   - Every option's `text` should be the same number of words, ideally same chars.
  *   - `why` is required on every option — the wrong-answer feedback is the most
  *     valuable moment in the lesson; spend words there.
